@@ -1,0 +1,20 @@
+{
+  "name": "clearance-system",
+  "private": true,
+  "description": "Front-end build for the School Clearance Management System (Tailwind CSS + Bootstrap components).",
+  "scripts": {
+    "build:bootstrap": "sass --no-source-map --style=compressed --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls resources/scss/bootstrap.scss public/assets/css/bootstrap.min.css",
+    "build:tailwind": "tailwindcss -i resources/css/app.css -o public/assets/css/app.css --minify",
+    "build:vendor": "node resources/copy-vendor.js",
+    "build": "npm run build:vendor && npm run build:bootstrap && npm run build:tailwind",
+    "watch": "tailwindcss -i resources/css/app.css -o public/assets/css/app.css --watch"
+  },
+  "devDependencies": {
+    "@fontsource/dm-sans": "^5.0.0",
+    "@fontsource/dm-serif-display": "^5.0.0",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "sass": "^1.77.0",
+    "tailwindcss": "^3.4.17"
+  }
+}

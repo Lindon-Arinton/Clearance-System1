@@ -1,0 +1,15 @@
+# Route every request into the public/ front controller so the app can be
+# opened at http://localhost/Clearance%20System/ without exposing app/, writable/,
+# vendor/ or .env to the web.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    Require all denied
+</IfModule>
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
